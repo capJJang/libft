@@ -29,6 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -42,3 +43,4 @@ int main(void){
 	memmove(str3, str1, 3);
 	printf("lib func : %s", str3);
 }
+*/
