@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segan <segan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 16:31:24 by segan             #+#    #+#             */
-/*   Updated: 2022/07/15 17:05:30 by segan            ###   ########.fr       */
+/*   Created: 2022/07/15 20:36:10 by segan             #+#    #+#             */
+/*   Updated: 2022/07/15 20:45:53 by segan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char *s, int o)
+int	atoi(const char *str)
 {
-	while (*s)
+	int	sign;
+	int	ret;
+
+	sign = 1;
+	ret = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str++ == '-')
+		sign *= -1;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (*s == o)
-			return ((char *) s);
-		else
-			s++;
+		ret = ret * 10 + *str - '0';
+		str++;
 	}
-	return (((void *)0));
+	return (sign * ret);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int	main(void)
-{
-	char str[] = "BlockDMask \0Blog is good";
-	char *ptr = strchr(str, 'o');
-
-	while(ptr != ((void *)0))
-	{
-		printf("찾는 문자 : %c, 찾은 문자열 : %s\n", *ptr, ptr);
-		ptr = strchr(ptr + 1, 'o');
-	}
-}
-*/

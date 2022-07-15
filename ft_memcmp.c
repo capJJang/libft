@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segan <segan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 16:31:40 by segan             #+#    #+#             */
-/*   Updated: 2022/07/15 16:31:46 by segan            ###   ########.fr       */
+/*   Created: 2022/07/15 16:46:10 by segan             #+#    #+#             */
+/*   Updated: 2022/07/15 17:32:27 by segan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	ret;
+	const unsigned char	*s1_ptr;
+	const unsigned char	*s2_ptr;
 
-	ret = ft_strlen(src) + ft_strlen(dst);
-	while (*dst)
-		dst++;
-	while (size-- > 1)
-		*dst++ = *src++;
-	*dst = 0;
-	return (ret);
+	s1_ptr = s1;
+	s2_ptr = s2;
+	while (*s1_ptr == *s2_ptr && n)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1_ptr - *s2_ptr);
 }
 
 /*
 #include <stdio.h>
 #include <string.h>
 
-int	main(void)
+int main(void)
 {
-	char	dest[30] = "123";
-	char	*src = "456789";
+	char str1[] = "this is \0 test";
+	char str2[] = "this is \0 test";
 
-	size_t ret = ft_strlcat(dest, src, 7);
-	printf("dest : %s \t return = %zu", dest, ret);
+	printf("my func : %d\n", ft_memcmp(str1, str2, ft_strlen(str1)));
+	printf("my func : %d", memcmp(str1, str2, ft_strlen(str1)));
 }
 */
