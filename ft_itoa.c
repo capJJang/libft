@@ -37,7 +37,6 @@ char	*ft_itoa(int n)
 		n /= 10;
 		len--;
 	}
-
 	return (str);
 }
 
