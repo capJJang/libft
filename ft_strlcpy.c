@@ -15,7 +15,30 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	while (dstsize-- > 1 && *src)
-		*dst = *src;
+		*dst++ = *src++;
 	*dst = 0;
 	return (ft_strlen(src));
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char src[] = "123456789";
+    char dest[10];
+    char src1[] = "abcde";
+    char dest1[] = "123456789";
+
+	printf("\n");
+    printf("src : %s\ndest : [10]\nsize : 5\n", src);
+    printf("your function : %d\n", ft_strlcpy(dest, src, 5));
+    printf("com function : %lu\n\n", strlcpy(dest, src, 5));
+    printf("src : %s\ndest : %s\nsize : 3\n", src1, dest1);
+    printf("your function : %d\n", ft_strlcpy(dest1, src1, 3));
+    printf("com function : %lu\n", strlcpy(dest1, src1, 3));
+	printf("\n");
+    return (0);
+}
+*/

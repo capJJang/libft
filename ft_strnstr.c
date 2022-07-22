@@ -32,6 +32,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return ((void *)0);
 }
 
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -44,3 +45,4 @@ int main(void)
 	printf("lib func : %s\n\n", strnstr(str1, str2, 10));
 
 }
+*/
