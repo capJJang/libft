@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 05:37:09 by segan             #+#    #+#             */
-/*   Updated: 2022/07/25 05:37:09 by segan            ###   ########.fr       */
+/*   Created: 2022/07/25 05:36:05 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:36:05 by segan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lsttnew(void *content)
 {
-	char	*ptr;
+	t_list	*newstruct;
 
-	ptr = (char *)malloc(len + 1);
-	if (ptr == (void *)0)
+	newstruct = (t_list *)malloc(sizeof(t_list));
+	if (newstruct == (void *)0)
 		return ((void *)0);
-	ptr = ft_memcpy(ptr, s + start, len);
-	*(ptr + start) = 0;
-	return (ptr);
+	newstruct->content = content;
+	newstruct->next = (t_list *) 0;
+	return (newstruct);
 }
+
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	t_list	*test;
+	test = ft_lsttnew("test");
+	printf("%s\n", (char *) test->content);
+}
+*/

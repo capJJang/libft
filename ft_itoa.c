@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/25 05:33:57 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:33:57 by segan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdlib.h>
 
 size_t	intlen(int n)
 {
@@ -15,14 +26,15 @@ size_t	intlen(int n)
 	}
 	return (len);
 }
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
-	
+
 	len = intlen(n);
 	str = (char *)malloc(len + 1);
-	if(str == (void *)0)
+	if (str == (void *) 0)
 		return ((void *)0);
 	if (n < 0)
 	{

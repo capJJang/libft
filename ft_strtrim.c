@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/25 05:37:04 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:37:04 by segan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	cntchr(char const*str, int c)
@@ -16,8 +28,8 @@ int	cntchr(char const*str, int c)
 
 int	checkrepetion(char const *str, int c)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i <= c)
@@ -39,8 +51,9 @@ int	isinset(char const *str, int c)
 	{
 		if (*str == c)
 			return (0);
-		return (1);
+		str++;
 	}
+	return (1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -48,7 +61,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	set_len;
 	size_t	ret_len;
-	char *	ret;
+	char	*ret;
 
 	i = 0;
 	set_len = ft_strlen(set);
@@ -56,7 +69,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		if (checkrepetion(set, i) == 1)
 			ret_len = cntchr(s1, set[i]);
-		i++;	
+		i++;
 	}
 	ret_len = ft_strlen(s1) - ret_len;
 	ret = (char *)malloc(ret_len + 1);

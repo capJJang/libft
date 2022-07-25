@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/25 05:36:42 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:36:42 by segan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	total_word_length(char const *s, int c)
@@ -8,7 +20,7 @@ int	total_word_length(char const *s, int c)
 	while (*s)
 	{
 		if (*s == c && len == 0)
-			continue;
+			continue ;
 		else
 			len++;
 	}
@@ -26,7 +38,7 @@ char	**free_all(char **s)
 	return ((void *)0);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t	total_length;
 	size_t	temp_length;

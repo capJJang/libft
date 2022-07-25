@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 	if (str_ptr == (void *)0)
 		return ((void *)0);
 	while (*s1)
-		*str_ptr++ = *(char  *)s1++;
+		*str_ptr++ = *(char *)s1++;
 	*str_ptr = 0;
 	return (str_ptr - (len));
 }

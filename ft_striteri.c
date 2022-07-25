@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/25 05:36:48 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:36:48 by segan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
@@ -5,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (*s)
 	{
-		f(i, *s);
+		f(i, s);
 		i++;
 		s++;
 	}

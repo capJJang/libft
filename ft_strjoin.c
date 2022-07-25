@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/25 05:36:53 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:36:53 by segan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -7,7 +19,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	s2_len;
 	size_t	ptr_len;
 
-	
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	ptr_len = s1_len + s2_len;
