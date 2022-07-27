@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segan <segan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 16:32:01 by segan             #+#    #+#             */
-/*   Updated: 2022/07/15 16:32:02 by segan            ###   ########.fr       */
+/*   Created: 2022/07/25 05:36:33 by segan             #+#    #+#             */
+/*   Updated: 2022/07/25 05:36:33 by segan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+#include <unistd.h>
+#include "libft.h"
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
-	else
-		return (c);
+	char	*num;
+
+	num = ft_itoa(n);
+	ft_putstr_fd(num, fd);
 }

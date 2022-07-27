@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 void	*calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	ptr = maclloc(size * count);
+	ptr = malloc(size * count);
 	return (ptr);
 }

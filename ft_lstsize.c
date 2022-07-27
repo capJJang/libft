@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: segan <segan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: segan <segan@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 16:32:01 by segan             #+#    #+#             */
-/*   Updated: 2022/07/15 16:32:02 by segan            ###   ########.fr       */
+/*   Created: 2022/07/26 03:01:55 by segan             #+#    #+#             */
+/*   Updated: 2022/07/26 03:01:55 by segan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
 {
-	if (c >= 97 && c <= 122)
-		return (c - 32);
+	if (lst->next == NULL)
+		return (1);
 	else
-		return (c);
+		return (ft_lstsize(lst->next) + 1);
 }
