@@ -17,5 +17,30 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 
 	ptr = malloc(size * count);
+	if (ptr)
+		ft_bzero(ptr, size);
 	return (ptr);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char *str1 = ft_calloc(30, 1);
+	if (!*str1)
+		printf("%c test1", *str1);
+	else
+	{
+		printf("1");
+	}
+	char *str2 = calloc(30, 1);
+	if (!*str1)
+		printf("%c test2", *str2);
+	else
+	{
+		printf("2");
+	}
+	printf("%c", *str2);
+}
+*/

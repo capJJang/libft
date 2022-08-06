@@ -60,9 +60,8 @@ char	**ft_split(char const *s, char c)
 		str[i] = (char *)malloc(temp_length + 1);
 		if (str[i] == (void *)0)
 			return (free_all(str));
-		ft_strlcpy(str[i], s, temp_length);
+		ft_strlcpy(str[i++], s, temp_length);
 		s += temp_length + 1;
-		i++;
 	}
 	*str = 0;
 	return (str);

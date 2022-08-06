@@ -23,8 +23,10 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	while (len--)
 	{
 		temp = *src_ptr;
-		*dst_ptr = temp;
+		*dst_ptr = *src_ptr;
 		*src_ptr = temp;
+		src_ptr++;
+		dst_ptr++;
 	}
 	return (dst);
 }
@@ -34,13 +36,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 #include <string.h>
 
 int main(void){
-	char str1[] = "Hello world!";
-	char str2[30];
-	char str3[30];
-	ft_memmove(str2, str1, 3);
+	char str1[] = "Hello world! \r\n";
+	char *str2 = str1 + 1;
+	char *str3 = str1 + 1;
+
+	ft_memmove(str2, str1, 10);
 	printf("my func : %s\n", str2);
-	ft_bzero(str2, 30);
-	memmove(str3, str1, 3);
+	memmove(str3, str1, 10);
 	printf("lib func : %s", str3);
 }
 */

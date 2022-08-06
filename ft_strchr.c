@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int o)
 		else
 			s++;
 	}
-	return (((void *)0));
+	return ((void *)0);
 }
 
 /*

@@ -21,7 +21,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	dst_ptr = dst;
 	src_ptr = src;
-	while (i < n)
+	if (!dst_ptr)
+		return (dst);
+	while (i < n && *src_ptr)
 	{
 		dst_ptr[i] = src_ptr[i];
 		i++;
@@ -33,18 +35,21 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 //inform compiler that pointer variables are pointing different address
 //memcpy function checks memory area overlap
 
-/*
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int main(void){
-	char str1[] = "Hello world!";
-	char str2[30];
-	char str3[30];
-	ft_memcpy(str2, str1, 3);
-	printf("my func : %s\n", str2);
-	ft_bzero(str2);
-	memcpy(str3, str1, 3);
-	printf("lib func : %s", str3);
-}
-*/
+// int main(void){
+// 	char str1[] = "Hello world!";
+// 	char str2[30];
+// 	char str3[30];
+// 	ft_memcpy(str2, str1, 3);
+// 	printf("my func : %s\n", str2);
+// 	ft_bzero(str2, 30);
+// 	memcpy(str3, str1, 3);
+// 	printf("lib func : %s\n\n", str3);
+// 	ft_bzero(str2, 30);
+// 	ft_bzero(str3, 30);
+
+// 	printf("my func : %s\n", ft_memcpy((void *)0, (void *)0, 3));
+// 	printf("lib func : %s", memcpy((void *)0, (void *)0, 3));
+// }
