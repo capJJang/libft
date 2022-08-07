@@ -19,8 +19,13 @@ int	ft_atoi(const char *str)
 	ret = 0;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str++ == '-')
+	if (*str == '-')
+	{
 		sign *= -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
 	while (*str >= '0' && *str <= '9')
 	{
 		ret = ret * 10 + *str - '0';
@@ -28,3 +33,13 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * ret);
 }
+
+/*
+#include <stdio.h>
+#include <stdlib.h>
+int main(void)
+{
+	printf("\n%d\n",ft_atoi("456:123"));
+	printf("\n%d\n",atoi("456:123"));
+}
+*/
