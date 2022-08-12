@@ -19,7 +19,7 @@ int	total_word_length(char const *s, int c)
 	len = 0;
 	while (*s)
 	{
-		if (*s == c && len == 0)
+		if (*s == c && len == 0) // 구분자도 같이 포함함?
 		{
 			s++;
 			continue ;
@@ -91,8 +91,8 @@ int main(void)
 {
 	char **tabstr;
 
-	tabstr = ft_split("lorem ipsum", ' ');
-	for (int i = 0; i < 2; i++ )
+	tabstr = ft_split("lorem ipsum dolor", ' ');
+	for (int i = 0; i < 3; i++ )
 	{
 		ft_print_result(tabstr[i]);
 		write(1, "\n", 1);

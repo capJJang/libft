@@ -13,7 +13,7 @@
 #include "libft.h"
 
 int	ft_strncmp2(const char *s1, const char *s2, size_t n)
-{	
+{
 	while (n-- && ((unsigned char)*s1 && (unsigned char) *s2))
 	{
 		if ((unsigned char)*s1 == (unsigned char)*s2)
@@ -31,7 +31,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	if (!*needle)
 		return ((char *)haystack);
-	while (*haystack && (len > ft_strlen(needle)))
+	while (*haystack && (len >= ft_strlen(needle)))
 	{
 		if (ft_strncmp2(haystack, needle, len) == 0)
 			return ((char *)haystack);
@@ -47,6 +47,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 int main(void)
 {
-	printf("my func : %s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+	char *s1 = "AAAAAAAAAAAAA";
+	size_t max = strlen(s1);
+	char *i1 = strnstr(s1, s1, max);
+	char *i2 = ft_strnstr(s1, s1, max);
+
+	printf("%s\n", i1);
+	printf("%s\n", i2);
 }
 */

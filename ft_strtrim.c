@@ -82,7 +82,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	*ret = 0;
 	return (ret - ret_len);
-}/*
+}
+
+/*
 #include <stdio.h>
 
 int	main(void)
