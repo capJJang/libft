@@ -17,7 +17,7 @@ size_t	intlen(int n)
 	size_t	len;
 
 	len = 0;
-	if (n < 0)
+	if (n <= 0)
 		len++;
 	while (n != 0)
 	{
@@ -31,22 +31,24 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
+	int		sign;
+	long	num;
 
+	sign = 0;
 	len = intlen(n);
 	str = (char *)malloc(len + 1);
-	if (str == (void *) 0)
-		return ((void *)0);
+	num = n;
 	if (n < 0)
 	{
 		str[0] = '-';
-		n *= -1;
-		len--;
+		num *= -1;
+		sign = 1;
 	}		
 	str[len--] = 0;
-	while (len >= 0)
+	while (len >= sign)
 	{
-		str[len] = n % 10 + '0';
-		n /= 10;
+		str[len] = num % 10 + '0';
+		num /= 10;
 		len--;
 	}
 	return (str);
@@ -57,7 +59,7 @@ char	*ft_itoa(int n)
 
 int main(void)
 {
-	char *test = ft_itoa(-1012);
+	char *test = ft_itoa(-2147483648);
 	printf("%s", test);
 }
 */

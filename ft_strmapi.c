@@ -11,15 +11,31 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+/*
+#include <unistd.h>
 
+char	mapi(unsigned int i, char c)
+{
+	static int indexArray[11] = {0};
+
+	if (i > 10 || indexArray[i] == 1)
+		write(1, "wrong index\n", 12);
+	else
+		indexArray[i] = 1;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	else
+		return (c);
+}
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	unsigned int	len;
 	char			*str;
 
-	len = ft_strlen(s);
-	str = (char *)malloc(len +1);
+	str = (char *)malloc(ft_strlen(s) + 1);
 	i = 0;
 	while (*s)
 	{
@@ -27,5 +43,19 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 		s++;
 	}
+	str[i] = 0;
 	return (str);
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char	*str = (char *)malloc(sizeof(*str) * 12);
+	strcpy(str, "LoReM iPsUm");
+	char	*strmapi = ft_strmapi(str, &mapi);
+	printf("%s", strmapi);
+}
+*/

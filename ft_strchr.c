@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int o)
 {
+	if (o == 0)
+		return ((char *)s + ft_strlen(s));
 	while (*s)
 	{
 		if (*s == o)
@@ -19,22 +23,28 @@ char	*ft_strchr(const char *s, int o)
 		else
 			s++;
 	}
-	return ((void *)0);
+	return ((void *) 0);
 }
-
+//문자열의 끝에 널이 있으므로 그 포인터를 반환해야함
+//문자열에서 찾지 못한다면 널 포인터를 반환해야함
 /*
 #include <string.h>
 #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "BlockDMask \0Blog is good";
-	char *ptr = strchr(str, 'o');
+	char str[] = "bonjour";
+	char *ptr = ft_strchr(str, '\0');
 
-	while(ptr != ((void *)0))
-	{
-		printf("찾는 문자 : %c, 찾은 문자열 : %s\n", *ptr, ptr);
-		ptr = strchr(ptr + 1, 'o');
-	}
+
+	if (str + 7 == ptr)
+		printf("right\n");
+	
+	char str1[] = "";
+	char *ptr1 = ft_strchr(str, '\0');
+
+
+	if (str1 == ptr1)
+		printf("right1\n");
 }
 */

@@ -35,7 +35,7 @@ int	main(void)
 		printf("1");
 	}
 	char *str2 = calloc(30, 1);
-	if (!*str1)
+	if (!*str2)
 		printf("%c test2", *str2);
 	else
 	{

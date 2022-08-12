@@ -36,13 +36,16 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 #include <string.h>
 
 int main(void){
-	char str1[] = "Hello world! \r\n";
-	char *str2 = str1 + 1;
-	char *str3 = str1 + 1;
+	char	src[] = "lorem ipsum dolor sit amet";
+	char	*dest1;
+	char	*dest2;
 
-	ft_memmove(str2, str1, 10);
-	printf("my func : %s\n", str2);
-	memmove(str3, str1, 10);
-	printf("lib func : %s", str3);
+	dest1 = src + 1;
+	dest2 = src + 1;
+	
+	ft_memmove(dest1, "consecrteutr", 5);
+	printf("%s", dest1);
+	memmove(dest2, "consecrteutr", 5);
+	printf("%s", dest2);
 }
 */

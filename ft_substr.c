@@ -17,9 +17,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 
 	ptr = (char *)malloc(len + 1);
-	if (ptr == (void *)0)
+	if (len > ft_strlen(s) || start > ft_strlen(s))
 		return ((void *)0);
 	ptr = ft_memcpy(ptr, s + start, len);
-	*(ptr + start) = 0;
+	*(ptr + len) = 0;
 	return (ptr);
 }
+
+/*
+#include <stdio.h>
+
+int main(void)
+{
+	char	str[] = "lorem ipsum dolor sit amet";
+	char *strsub = ft_substr(str, 400, 20);
+
+	printf("%s", strsub);
+}
+*/

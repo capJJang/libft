@@ -20,9 +20,15 @@ int	total_word_length(char const *s, int c)
 	while (*s)
 	{
 		if (*s == c && len == 0)
+		{
+			s++;
 			continue ;
+		}
 		else
-			len++;
+		{
+				len++;
+				s++;
+		}
 	}
 	return (len);
 }
@@ -40,29 +46,56 @@ char	**free_all(char **s)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	total_length;
 	size_t	temp_length;
 	size_t	i;
 	char	**str;
 
-	total_length = total_word_length(s, c);
-	str = (char **)malloc(total_length);
-	if (str == (void *)0)
-		return ((void *)0);
+	str = (char **)malloc(total_word_length(s, c));
 	i = 0;
 	while (*s)
 	{
 		temp_length = 0;
-		if (*s == c)
-			s++;
-		while (*(s + 1) != c || *(s + 1) != 0)
+		while (*s != c && *s != 0)
+		{
 			temp_length++;
+			s++;
+		}
 		str[i] = (char *)malloc(temp_length + 1);
 		if (str[i] == (void *)0)
 			return (free_all(str));
-		ft_strlcpy(str[i++], s, temp_length);
-		s += temp_length + 1;
+		ft_strlcpy(str[i], s - temp_length, temp_length + 1);
+		i++;
+		if (*s == 0)
+			break ;
+		s++;
 	}
-	*str = 0;
 	return (str);
 }
+
+/*
+#include <unistd.h>
+
+void	ft_print_result(char const *s)
+{
+	int		len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	write(1, s, len);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+	char **tabstr;
+
+	tabstr = ft_split("lorem ipsum", ' ');
+	for (int i = 0; i < 2; i++ )
+	{
+		ft_print_result(tabstr[i]);
+		write(1, "\n", 1);
+	}
+}
+*/

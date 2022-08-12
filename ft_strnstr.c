@@ -12,22 +12,31 @@
 
 #include "libft.h"
 
+int	ft_strncmp2(const char *s1, const char *s2, size_t n)
+{	
+	while (n-- && ((unsigned char)*s1 && (unsigned char) *s2))
+	{
+		if ((unsigned char)*s1 == (unsigned char)*s2)
+		{
+			s1++;
+			s2++;
+		}
+		else
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+	}
+	return (0);
+}
+
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-
-	i = 0;
 	if (!*needle)
 		return ((char *)haystack);
-	while (*haystack && (i < len))
+	while (*haystack && (len > ft_strlen(needle)))
 	{
-		if (ft_strncmp(haystack, needle, len))
+		if (ft_strncmp2(haystack, needle, len) == 0)
 			return ((char *)haystack);
-		else
-		{
-			ft_strncmp(++haystack, needle, len);
-			i++;
-		}
+		haystack++;
+		len--;
 	}
 	return ((void *)0);
 }
@@ -38,11 +47,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 int main(void)
 {
-	char	str1[] = "Hello World";
-	char	str2[] = "He";
-
-	printf("my func : %s\n", ft_strnstr(str1, str2, 10));
-	printf("lib func : %s\n\n", strnstr(str1, str2, 10));
-
+	printf("my func : %s\n", ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 }
 */

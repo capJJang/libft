@@ -19,25 +19,28 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	s1_ptr = s1;
 	s2_ptr = s2;
-	while (*s1_ptr == *s2_ptr && n)
+	while (n--)
 	{
-		s1++;
-		s2++;
-		n--;
+		if (*s1_ptr != *s2_ptr)
+			return (*s1_ptr - *s2_ptr);
+		else
+		{
+			s1_ptr++;
+			s2_ptr++;
+		}
 	}
-	return (*s1_ptr - *s2_ptr);
+	return (0);
 }
-
 /*
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
-	char str1[] = "this is \0 test";
-	char str2[] = "this is \0 test";
-
-	printf("my func : %d\n", ft_memcmp(str1, str2, ft_strlen(str1)));
-	printf("my func : %d", memcmp(str1, str2, ft_strlen(str1)));
+	printf("%d\n", ft_memcmp("abcdefghij", "abcdefgxyz", 7));
+	printf("%d\n\n", memcmp("abcdefghij", "abcdefgxyz", 7));
+	printf("%d\n", ft_memcmp("zyxbcdefgh", "abcdefgxyz", 0));
+	printf("%d\n", memcmp("zyxbcdefgh", "abcdefgxyz", 0));
 }
+
 */

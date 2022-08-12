@@ -44,7 +44,7 @@ $(NAME):    $(OBJECTS)
 			$(AR)   $@ $^
 
 bonus:
-            make WITH_BONUS=1 all
+	make WITH_BONUS=1 all
 
 %.o:     %.c $(INCS)
 			$(CC) $(CFLAGS) -c $< -o $@
@@ -56,5 +56,8 @@ fclean:     clean
 			$(RM) $(NAME)
 
 re:           fclean all
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
 
 .PHONY:     all clean fclean re bonus
