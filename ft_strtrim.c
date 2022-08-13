@@ -26,7 +26,7 @@ int	cntchr(char const*str, int c)
 	return (cnt);
 }
 
-int	checkrepetion(char const *str, int c)
+int	checkrepetion(char const *set, int c)
 {
 	int	i;
 	int	j;
@@ -37,7 +37,7 @@ int	checkrepetion(char const *str, int c)
 		j = 0;
 		while (j < i)
 		{
-			if (str[j++] == str[i])
+			if (set[j++] == set[i])
 				return (0);
 		}
 		i++;
@@ -45,13 +45,13 @@ int	checkrepetion(char const *str, int c)
 	return (1);
 }
 
-int	isinset(char const *str, int c)
+int	isinset(char const *set, int c)
 {
-	while (*str)
+	while (*set)
 	{
-		if (*str == c)
+		if (*set == c)
 			return (0);
-		str++;
+		set++;
 	}
 	return (1);
 }
@@ -59,13 +59,11 @@ int	isinset(char const *str, int c)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	set_len;
 	size_t	ret_len;
 	char	*ret;
 
 	i = 0;
-	set_len = ft_strlen(set);
-	while (i < set_len)
+	while (i < ft_strlen(set))
 	{
 		if (checkrepetion(set, i) == 1)
 			ret_len = cntchr(s1, set[i]);
@@ -74,10 +72,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ret_len = ft_strlen(s1) - ret_len;
 	ret = (char *)malloc(ret_len + 1);
 	i = 0;
-	while (i < ret_len)
+	while (i <= ret_len)
 	{
 		if (isinset(set, *s1) == 1)
 			*ret++ = *s1++;
+		else
+			s1++;
 		i++;
 	}
 	*ret = 0;
@@ -89,7 +89,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main(void)
 {
-	char *str = ft_strtrim("Hello World!", "!");
+	char *str = ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ");
 	printf("%s\n", str);
 	free(str);
 	return (0);

@@ -14,21 +14,24 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	temp;
 	unsigned char	*src_ptr;
 	unsigned char	*dst_ptr;
 
 	src_ptr = (unsigned char *)src;
 	dst_ptr = dst;
-	while (len--)
+	if (src_ptr >= dst_ptr)
 	{
-		temp = *src_ptr;
-		*dst_ptr = temp;
-		src_ptr++;
-		dst_ptr++;
+		while (len--)
+			*dst_ptr++ = *src_ptr++;
+	}
+	else
+	{
+		while (len--)
+			*(dst_ptr + len) = *(src_ptr + len);
 	}
 	return (dst);
 }
+
 /*
 #include <stdio.h>
 #include <string.h>
@@ -40,10 +43,9 @@ int main(void){
 
 	dest1 = src + 1;
 	dest2 = src + 1;
-
-	ft_memmove(dest1, src, 8);
+	ft_memmove(dest1, (void *)0, 5);
 	printf("%s\n", dest1);
-	memmove(dest2, src, 8);
-	printf("%s", dest2);
+	//memmove(dest2, (void *) 0, 5);
+	//printf("%s", dest2);
 }
 */

@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	ptr = s;
 	i = 0;
-	while (ptr[i] && n--)
+	while (n--)
 	{
 		if (ptr[i] == (unsigned char) c)
 			return ((void *)&ptr[i]);
@@ -76,6 +76,6 @@ int	main(void)
 	printf("%s\n", (char *)ft_memchr(tab, -1, 7));
 	printf("%s\n", (char *)memchr(tab2, -1, 7));
 
-	test_memchr();	
+	test_memchr();
 }
 */
