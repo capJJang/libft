@@ -43,7 +43,7 @@ int main(void){
 
 	dest1 = src + 1;
 	dest2 = src + 1;
-	ft_memmove(dest1, (void *)0, 5);
+	ft_memmove(dest1, "consectetur", 5);
 	printf("%s\n", dest1);
 	//memmove(dest2, (void *) 0, 5);
 	//printf("%s", dest2);
