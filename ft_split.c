@@ -49,7 +49,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	char	**str;
 
-	str = (char **)malloc(count_word(s, c) + 1);
+	str = (char **)malloc(sizeof(char *) * (count_word(s, c) + 1));
 	i = 0;
 	while (*s)
 	{
@@ -61,11 +61,9 @@ char	**ft_split(char const *s, char c)
 				temp_length++;
 				s++;
 			}
-			str[i] = (char *)malloc(temp_length + 1);
-			if (str[i] == (void *)0)
+			str[i] = ft_substr((s - temp_length), 0, temp_length);
+			if (str[i++] == (void *)0)
 				return (free_all(str));
-			ft_strlcpy(str[i], s - temp_length, temp_length + 1);
-			i++;
 		}
 		else
 			s++;
@@ -74,92 +72,22 @@ char	**ft_split(char const *s, char c)
 	return (str);
 }
 
-#include <unistd.h>
-
-void	ft_print_result(char const *s)
-{
-	int		len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(1, s, len);
-}
-
+/*
+#include <stdio.h>
 
 int		main()
 {
-	char	**tabstr;
+	char	**str;
 	int		i;
 
-	alarm(5);
-
 	i = 0;
-		// if (!(tabstr = ft_split("          ", ' ')))
-		// 	ft_print_result("NULL");
-		// else
-		// {
-		// 	while (tabstr[i] != NULL)
-		// 	{
-		// 		ft_print_result(tabstr[i]);
-		// 		write(1, "\n", 1);
-		// 		i++;
-		// 	}
-		// }
-
-		if (!(tabstr = ft_split("lorem ipsum", ' ')))
-			ft_print_result("NULL");
-		else
-		{
-			while (tabstr[i] != NULL)
-			{
-				ft_print_result(tabstr[i]);
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-	
-		// if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
-		// 	ft_print_result("NULL");
-		// else
-		// {
-		// 	while (tabstr[i] != NULL)
-		// 	{
-		// 		ft_print_result(tabstr[i]);
-		// 		write(1, "\n", 1);
-		// 		i++;
-		// 	}
-		// }
-
-		// if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
-		// 	ft_print_result("NULL");
-		// else
-		// {
-		// 	while (tabstr[i] != NULL)
-		// 	{
-		// 		ft_print_result(tabstr[i]);
-		// 		write(1, "\n", 1);
-		// 		i++;
-		// 	}
-		// }
-
-		// if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
-		// 	ft_print_result("NULL");
-		// else
-		// {
-		// 	while (tabstr[i] != NULL)
-		// 	{
-		// 		ft_print_result(tabstr[i]);
-		// 		write(1, "\n", 1);
-		// 		i++;
-		// 	}
-		// }
-
-	
-		// if (!(tabstr = ft_split("", 'z')))
-		// 	ft_print_result("NULL");
-		// else
-		// 	if (!tabstr[0])
-		// 		ft_print_result("ok\n");
+	str = ft_split("lorem ipsum", ' ');
+	while ( i < 2)
+	{
+		printf("%s", str[i]);
+		i++;
+	}
+	//free_all(str);
 	return (0);
 }
+*/
