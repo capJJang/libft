@@ -68,7 +68,7 @@ int main()
 	elem3 = ft_lstnewone(str3);
 	elem4 = ft_lstnewone(str4);
 	alarm(5);
-	
+
 		begin = NULL;
 		ft_lstadd_back(&begin, elem);
 		ft_lstadd_back(&begin, elem2);

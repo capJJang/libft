@@ -17,8 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*ptr;
 
 	ptr = malloc(size * count);
-	if (ptr)
-		ft_bzero(ptr, count);
+	if (ptr != NULL)
+		ft_bzero(ptr, count * size);
 	return (ptr);
 }
 
@@ -29,10 +29,14 @@ void	*ft_calloc(size_t count, size_t size)
 
 int	main(void)
 {
-	char *str = (char *)ft_calloc(30, 1);
-		if (!str)
-			write(1, "NULL", 4);
-		else
-			write(1, str, 30);
+	int size = 8539;
+
+	void * diff1 = ft_calloc(size, sizeof(int));
+	void * diff2 = calloc(size, sizeof(int));
+
+	if (memcmp(diff1, diff2, sizeof(int) * size))
+		printf("failed");
+	free(diff1);
+	free(diff2);
 }
 */

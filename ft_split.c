@@ -43,6 +43,12 @@ char	**free_all(char **s)
 	return ((void *)0);
 }
 
+void	add_address_length(const char **s, size_t *temp_length)
+{
+	*s += 1;
+	*temp_length += 1;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	temp_length;
@@ -50,6 +56,8 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 
 	str = (char **)malloc(sizeof(char *) * (count_word(s, c) + 1));
+	if (str == NULL)
+		return (NULL);
 	i = 0;
 	while (*s)
 	{
@@ -57,10 +65,7 @@ char	**ft_split(char const *s, char c)
 		{
 			temp_length = 0;
 			while (*s != c && *s != 0)
-			{
-				temp_length++;
-				s++;
-			}
+				add_address_length(&s, &temp_length);
 			str[i] = ft_substr((s - temp_length), 0, temp_length);
 			if (str[i++] == (void *)0)
 				return (free_all(str));
@@ -81,7 +86,7 @@ int		main()
 	int		i;
 
 	i = 0;
-	str = ft_split("lorem ipsum", ' ');
+	str = ft_split((void *)0, ' ');
 	while ( i < 2)
 	{
 		printf("%s", str[i]);

@@ -16,9 +16,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;
 
-	ptr = (char *)malloc(len + 1);
 	if (len > ft_strlen(s) || start > ft_strlen(s))
-		return ((void *)0);
+		return (ft_strdup(""));
+	ptr = (char *)ft_calloc(len + 1, 1);
+	if (ptr == NULL)
+		return (NULL);
 	ptr = ft_memcpy(ptr, s + start, len);
 	*(ptr + len) = 0;
 	return (ptr);
@@ -29,7 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 int main(void)
 {
-	char	str[] = "lorem ipsum dolor sit amet";
+	char	*str = "lorem ipsum dolor sit amet";
 	char *strsub = ft_substr(str, 400, 20);
 
 	printf("%s", strsub);

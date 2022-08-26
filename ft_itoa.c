@@ -37,13 +37,15 @@ char	*ft_itoa(int n)
 	sign = 0;
 	len = intlen(n);
 	str = (char *)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
 	num = n;
 	if (n < 0)
 	{
 		str[0] = '-';
 		num *= -1;
 		sign = 1;
-	}		
+	}
 	str[len--] = 0;
 	while (len >= sign)
 	{
