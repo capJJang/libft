@@ -18,33 +18,22 @@ char	*ft_strchr(const char *s, int o)
 		return ((char *)s + ft_strlen(s));
 	while (*s)
 	{
-		if (*s == o)
+		if (*s == (char)o)
 			return ((char *) s);
 		else
 			s++;
 	}
 	return ((void *) 0);
 }
-//문자열의 끝에 널이 있으므로 그 포인터를 반환해야함
-//문자열에서 찾지 못한다면 널 포인터를 반환해야함
+
 /*
 #include <string.h>
 #include <stdio.h>
 
 int	main(void)
 {
-	char str[] = "bonjour";
-	char *ptr = ft_strchr(str, '\0');
-
-
-	if (str + 7 == ptr)
-		printf("right\n");
-	
-	char str1[] = "";
-	char *ptr1 = ft_strchr(str, '\0');
-
-
-	if (str1 == ptr1)
-		printf("right1\n");
+	char s[] = "tripouille";
+	// printf("%s\n", ft_strchr(s, 't' + 256));
+	printf("%s", ft_strchr(s, 't' + 256));
 }
 */
