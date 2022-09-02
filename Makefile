@@ -40,7 +40,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-ifdef   WITH_BONUS
+ifdef   BONUS
 	SRCS += $(SRCS_BONUS)
 	OBJS += $(OBJS_BONUS)
 endif
@@ -54,15 +54,14 @@ $(NAME)	:	$(OBJS)
 			$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 bonus :
-		make WITH_BONUS=1
+		make BONUS=1
 
 clean :
-		$(RM) $(OBJS) $(OBJS_BONUS)
+		$(RM) $(OBJS) $(OBJS_BONUS) $(INCS).gch
 
 fclean :
 		make clean
 		$(RM) $(NAME)
-		$(RM) $(INCS).gch
 
 re :
 	make fclean
