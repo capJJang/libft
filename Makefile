@@ -41,6 +41,7 @@ OBJS	=	$(SRCS:.c=.o)
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
 ifdef   BONUS
+	echo TEST3
 	SRCS += $(SRCS_BONUS)
 	OBJS += $(OBJS_BONUS)
 endif
@@ -48,9 +49,11 @@ endif
 all	:	$(NAME)
 
 %.o		: %.c $(INCS)
+		echo TEST1
 		$(CC) $(CFLAGS) -c $(SRCS) $(INCS)
 
 $(NAME)	:	$(OBJS)
+			echo TEST2
 			$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 bonus :

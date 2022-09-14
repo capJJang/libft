@@ -23,13 +23,12 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		temp = ft_lstnew(f(lst->content));
 		if (temp == NULL)
 		{
-			ft_lstclear(&temp, del);
+			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new_lst, temp);
 		lst = lst->next;
 	}
-	free(temp);
 	temp = NULL;
 	return (new_lst);
 }
@@ -106,7 +105,7 @@ int main()
 	elem->next = elem2;
 	elem2->next = elem3;
 	elem3->next = elem4;
-	
+
 		if (!(list = ft_lstmap(elem, &ft_map, &ft_del)))
 			return (0);
 		if (list == elem)

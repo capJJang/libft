@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (count == SIZE_MAX && size == SIZE_MAX)
+		return (NULL);
 	ptr = malloc(size * count);
 	if (ptr != NULL)
 		ft_bzero(ptr, count * size);
@@ -27,15 +29,13 @@ void	*ft_calloc(size_t count, size_t size)
 #include <string.h>
 #include <unistd.h>
 
-int	main(void)
+int	main()
 {
-	int size = 8539;
+	void * diff1 = ft_calloc(1, 1);
+	void * diff2 = calloc(1, 1);
 
-	void * diff1 = ft_calloc(size, sizeof(int));
-	void * diff2 = calloc(size, sizeof(int));
-
-	if (memcmp(diff1, diff2, sizeof(int) * size))
-		printf("failed");
+	printf("%s\n", diff1);
+	printf("%s", diff2);
 	free(diff1);
 	free(diff2);
 }
